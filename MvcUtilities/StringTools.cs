@@ -217,46 +217,16 @@ namespace MvcUtilities
             return new string(a);
         }
 
+        /// <summary>
+        /// Extension method instead of String.Format()
+        /// Being used as string.StringFormat()
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static string StringFormat(this string str, params object[] args)
         {
             return String.Format(str, args);
-        }
-
-        /// <summary>
-        /// ForEach alternative for IEnumerables. Safe to use with null values
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="elem"></param>
-        /// <param name="action"></param>
-        public static void Each<T>(this IEnumerable<T> elem, Action<T> action)
-        {
-            if (elem == null)
-                return;
-
-            foreach (var e in elem)
-            {
-                var localE = e;
-                action(localE);
-            }
-        }
-
-        /// <summary>
-        /// ForEach alternative for IEnumerables. Safe to use with null values
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="elem"></param>
-        /// <param name="action">second int parameter points out the order of currently processed element by the lambda</param>
-        public static void Each<T>(this IEnumerable<T> elem, Action<T, int> action)
-        {
-            if (elem == null)
-                return;
-
-            int i = 0;
-            foreach (var e in elem)
-            {
-                var localE = e;
-                action(localE, i++);
-            }
         }
 
         /// <summary>
@@ -293,26 +263,6 @@ namespace MvcUtilities
                 return str;
 
             return HttpUtility.HtmlAttributeEncode(str);
-        }
-
-        /// <summary>
-        /// Is the object null?
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static bool IsNull(this object obj)
-        {
-            return obj == null;
-        }
-
-        /// <summary>
-        /// Is the object not null?
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static bool IsNotNull(this object obj)
-        {
-            return obj != null;
         }
 
         /// <summary>
