@@ -12,6 +12,11 @@ of the methods once.
 <h3>Operations</h3>
 * CookieTools.DeleteCookie()
 * DateTools.EpochTimeNow()
+* DateTools.FromUnixTime()
+* DateTools.ToUnixTime()
+* DateTools.PassedTime()
+* EncryptionTools.Encrypt()
+* EncryptionTools.Encrypt()
 * ExceptionTools.ThrowIfNull()
 * MvcHelpers.SelectList()
 * MvcHelpers.Button()
