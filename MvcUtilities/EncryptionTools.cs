@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace MvcUtilities
 {
-    public static class Encryption
+    public static class EncryptionTools
     {
         /// <summary>
         /// Encrypt given string with the given key
+        /// Encrypts with TripleDESCryptoServiceProvider
         /// </summary>
         /// <param name="input"></param>
         /// <param name="key"></param>
@@ -35,6 +36,7 @@ namespace MvcUtilities
 
         /// <summary>
         /// Decrypt given string with given key
+        /// Decrypts with TripleDESCryptoServiceProvider
         /// </summary>
         /// <param name="input"></param>
         /// <param name="key"></param>
