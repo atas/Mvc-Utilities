@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using JetBrains.Annotations;
 
 namespace MvcUtilities
 {
@@ -81,6 +83,58 @@ namespace MvcUtilities
             }
 
             return MvcHtmlString.Create(sb.ToString());
+        }
+
+
+
+
+        /// <summary>
+        /// Appends a javascript file into the Layout
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <param name="script">path of the javascript file, i.e. /Scripts/script.js</param>
+        public static string AppendScript(this HtmlHelper helper, [PathReference("~/")]string script)
+        {
+            var vd = helper.ViewContext.Controller.ViewData;
+
+            if (vd["_Scripts"] == null)
+                vd["_Scripts"] = new List<string>();
+
+            var scripts = (List<string>)vd["_Scripts"];
+
+            if (!scripts.Contains(script))
+                scripts.Add(script);
+
+            return null;
+        }
+
+        /// <summary>
+        /// Returns appended scripts with script tags
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <returns></returns>
+        public static IHtmlString GetAppendedScripts(this HtmlHelper helper)
+        {
+            var vd = helper.ViewContext.Controller.ViewData;
+
+            if (vd["_Scripts"] == null)
+                vd["_Scripts"] = new List<string>();
+
+            var scripts = (List<string>)vd["_Scripts"];
+
+            var sb = new StringBuilder();
+
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+
+            foreach (var script in scripts)
+            {
+                var path = urlHelper.Content("~/" + script);
+                sb.Append("<script src=\"").Append(path).Append("\"></script>").Append(Environment.NewLine);
+            }
+
+            var mvcString = new MvcHtmlString(sb.ToString());
+
+            return mvcString;
         }
     }
 }
