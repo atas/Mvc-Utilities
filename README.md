@@ -16,7 +16,7 @@ of the methods once.
 * DateTools.ToUnixTime()
 * DateTools.PassedTime()
 * EncryptionTools.Encrypt()
-* EncryptionTools.Encrypt()
+* EncryptionTools.Decrypt()
 * ExceptionTools.ThrowIfNull()
 * MvcHelpers.SelectList()
 * MvcHelpers.Button()
