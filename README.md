@@ -37,3 +37,8 @@ of the methods once.
 * StringTools.UrlEncode()
 * StringTools.UrlDecode()
 * StringTools.UpdateIf()
+
+Developer: <br/>
+[Ata Sasmaz](http://www.ata.io/?utm_source=github&utm_medium=link&utm_content=bottom+link&utm_campaign=Mvc-Utilities)
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/cad05c515786df6e36efe274de6227f6 "githalytics.com")](http://githalytics.com/AtaS/Mvc-Utilities)
