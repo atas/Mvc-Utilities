@@ -175,6 +175,9 @@ namespace MvcUtilities
         /// <returns></returns>
         public static string LimitLength(this string str, int length)
         {
+            if (str == null)
+                return null;
+
             if (str.Length > length - 3)
                 str = str.Substring(0, length - 3) + "...";
 
